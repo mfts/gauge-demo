@@ -2,6 +2,7 @@
 
 This is the open-source Tailwindcss version of Vercel's beautiful Gauge React component to indicate a status.
 
+![gauge demo image](.github/img/demo.png)
 ## Demo
 
 View the demo here: 
