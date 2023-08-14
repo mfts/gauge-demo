@@ -5,7 +5,7 @@ This is the open-source Tailwindcss version of Vercel's beautiful Gauge React co
 ![gauge demo image](.github/img/demo.png)
 ## Demo
 
-View the demo here: 
+View the demo here: (https://gauge-demo.vercel.app)[https://gauge-demo.vercel.app]
 
 View the original Vercel design system here: [Gauge](https://vercel.com/design/gauge)
 
