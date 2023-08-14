@@ -31,8 +31,10 @@ export default function Home() {
 
       <div className="flex flex-col gap-y-4 items-center justify-center text-center mb-20">
         <Link
-          href="https://github.com/mfts/gauge-demo/"
+          href="https://github.com/mfts/gauge-demo/blob/main/app/gauge.tsx"
           className="p-4 border border-neutral-800 bg-zinc-800/30 rounded-xl hover:bg-gray-900 infline-flex items-center gap-x-2 mt-4 text-white"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Get the component on GitHub
         </Link>

@@ -24,6 +24,9 @@ It's pretty easy to install. I made it a standalone component that you can copy 
    cp ./app/gauge.tsx your-project/components/gauge.tsx
    ```
 
+   or go directly to it here: [gauge.tsx](https://github.com/mfts/gauge-demo/blob/main/app/gauge.tsx)
+   
+
 2. Add keyframes and animation to your `tailwind.config.ts`
    ```ts
    import type { Config } from 'tailwindcss'
