@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# vercel/gauge
 
-## Getting Started
+This is the open-source Tailwindcss version of Vercel's beautiful Gauge React component to indicate a status.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+View the demo here: 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+View the original Vercel design system here: [Gauge](https://vercel.com/design/gauge)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+### Requirements
 
-To learn more about Next.js, take a look at the following resources:
+- `tailwindcss`
+- `tailwindcss-animate`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+It's pretty easy to install. I made it a standalone component that you can copy in your codebase.
 
-## Deploy on Vercel
+1. Copy the `gauge` component
+   ```sh
+   cp ./app/gauge.tsx your-project/components/gauge.tsx
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Add keyframes and animation to your `tailwind.config.ts`
+   ```ts
+   import type { Config } from 'tailwindcss'
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   const config: Config = {
+     content: [
+       "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+       "./components/**/*.{js,ts,jsx,tsx,mdx}",
+       "./app/**/*.{js,ts,jsx,tsx,mdx}",
+     ],
+     theme: {
+       extend: {
+         keyframes: {
+           gauge_fadeIn: {
+             from: { opacity: "0" },
+             to: { opacity: "1" },
+           },
+           gauge_fill: {
+             from: { "stroke-dashoffset": "332", opacity: "0" },
+             to: { opacity: "1" },
+           },
+         },
+         animation: {
+           gauge_fadeIn: "gauge_fadeIn 1s ease forwards",
+           gauge_fill: "gauge_fill 1s ease forwards",
+         },
+       },
+     },
+     plugins: [require("tailwindcss-animate")],
+   };
+   export default config
+
+   ```
+
+3. Import into your page
+   ```ts
+   import { Gauge } from "@/components/gauge";
+
+   export default function Home() {
+     return (
+      <>
+        // ...
+        <Gauge value={80} size="small" showValue={true} />
+        // ...
+      </>
+     )
+   }
+   ```
+
+
+## API
+
+The `Gauge` component takes three props: `value`, `size`, `showValue`.
+
+- `value`: a **number** from `0` to `100`
+- `size`: a **string** ("small", "medium", "large"). Defaults to: `"small"`
+- `showValue`: a **boolean** to show the number inside the gauge or not. Defaults to: `true`
+
+
+## Inspiration
+
+- Thanks to the [@vercel](https://x.com/vercel) design team for the awesome component.
+- Thanks to [@shadcn](https://x.com/shadcn) who gave me a new joy for UI design.
