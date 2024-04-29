@@ -2,10 +2,14 @@ export const Gauge = ({
   value,
   size = "small",
   showValue = true,
+  color = "text-[hsla(131,41%,46%,1)]",
+  bgcolor = "text-[#333]",
 }: {
   value: number;
   size: "small" | "medium" | "large";
   showValue: boolean;
+  color: String;
+  bgcolor: String;
 }) => {
   const circumference = 332; //2 * Math.PI * 53; // 2 * pi * radius
   const valueInCircumference = (value / 100) * circumference;
@@ -43,7 +47,7 @@ export const Gauge = ({
         className="transform -rotate-90"
       >
         <circle
-          className="text-[#333]"
+          className={`${bgcolor}`}
           strokeWidth="12"
           stroke="currentColor"
           fill="transparent"
@@ -53,7 +57,7 @@ export const Gauge = ({
           cy="60"
         />
         <circle
-          className="text-[hsla(131,41%,46%,1)] animate-gauge_fill"
+          className={`animate-gauge_fill ${color}`}
           strokeWidth="12"
           strokeDasharray={strokeDasharray}
           strokeDashoffset={initialOffset}
