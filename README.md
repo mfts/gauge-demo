@@ -84,6 +84,8 @@ The `Gauge` component takes three props: `value`, `size`, `showValue`.
 
 - `value`: a **number** from `0` to `100`
 - `size`: a **string** ("small", "medium", "large"). Defaults to: `"small"`
+- `color`: a **string** (all text- of tailwinds like text-green-500). Defaults to: `"text-[hsla(131,41%,46%,1)]"`
+- `bgColor`: a **string** (all text- of tailwinds like text-green-500). Defaults to: `"text-[#333]"`
 - `showValue`: a **boolean** to show the number inside the gauge or not. Defaults to: `true`
 
 
